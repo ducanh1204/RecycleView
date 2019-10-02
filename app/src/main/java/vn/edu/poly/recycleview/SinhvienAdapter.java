@@ -13,11 +13,7 @@ import java.util.List;
 public class SinhvienAdapter extends RecyclerView.Adapter<SinhvienAdapter.StudentHolder> {
 
 
-    MyOnItemClickListener myOnItemClickListener;
 
-    public void setMyOnItemClickListener(MyOnItemClickListener myOnItemClickListener) {
-        this.myOnItemClickListener = myOnItemClickListener;
-    }
 
     List<Sinhvien> sinhvienList;
 
@@ -36,12 +32,7 @@ public class SinhvienAdapter extends RecyclerView.Adapter<SinhvienAdapter.Studen
     public void onBindViewHolder(@NonNull StudentHolder holder, final int position) {
 
         holder.tv.setText(sinhvienList.get(position).getId()+" | "+ sinhvienList.get(position).getName());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myOnItemClickListener.onClick(sinhvienList.get(position));
-            }
-        });
+
     }
 
     @Override

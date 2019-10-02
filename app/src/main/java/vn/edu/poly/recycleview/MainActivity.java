@@ -1,8 +1,10 @@
 package vn.edu.poly.recycleview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -33,15 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         rvList.setHasFixedSize(true);
         sinhvienAdapter = new SinhvienAdapter(sinhvienList);
-        sinhvienAdapter.setMyOnItemClickListener(new MyOnItemClickListener() {
-            @Override
-            public void onClick(Sinhvien sinhvien) {
-                Toast.makeText(getApplicationContext(),"AAAAAAAAAA",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rvList.setLayoutManager(linearLayoutManager);
+        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        rvList.setLayoutManager(gridLayoutManager);
         rvList.setAdapter(sinhvienAdapter);
 
 
